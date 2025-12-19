@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merry Christmas 🎄</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("https://images.unsplash.com/photo-1543589077-47d81606c1bf");
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p {
+            font-size: 20px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            background: #ff4d6d;
+            color: white;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background: #ff1e4d;
+        }
+
+        #timer {
+            font-size: 32px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FRONT PAGE -->
+<section id="home">
+    <h1>🎄 Merry Christmas 🎄</h1>
+    <p>
+        I made something special just for you 🤍<br>
+        Scroll down and enjoy ✨
+    </p>
+
+    <button onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">
+        Countdown to Christmas ⏳
+    </button>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown">
+    <h1>🎅 Christmas Countdown 🎅</h1>
+    <div id="timer"></div>
+
+    <button onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">
+        Read My Message 🎁
+    </button>
+</section>
+
+<!-- MESSAGE -->
+<section id="message">
+    <h1>🤍 A Christmas Wish for You 🤍</h1>
+    <p>
+        Merry Christmas 🎄<br><br>
+
+        I hope this season brings you peace, joy, and all the little moments that make the holidays special.
+        May your days be filled with warmth, laughter, and time spent with the people who matter most to you.<br><br>
+
+        As the year comes to an end, I just wanted to wish you happiness and success in everything you do.
+        I hope the new year opens doors for you, brings you growth, and gives you many reasons to smile.
+        You truly deserve good things.<br><br>
+
+        Thank you for being the kind of person who brings positive energy and kindness wherever you go.
+        I’m grateful to know you, and I hope this Christmas reminds you how appreciated you are.<br><br>
+
+        Enjoy every moment of this beautiful season.
+        Stay safe, stay blessed, and have a truly wonderful Christmas 🤍✨<br><br>
+
+        <strong>Warm wishes,<br>
+        From me 🎁</strong>
+    </p>
+
+    <button onclick="document.getElementById('end').scrollIntoView({behavior:'smooth'})">
+        One Last Thing ❤️
+    </button>
+</section>
+
+<!-- END -->
+<section id="end">
+    <h1>❤️ Hope You Like It ❤️</h1>
+    <p>
+        This was made with care, warmth, and a lot of Christmas spirit 🎄<br>
+        Thank you for being you ✨
+    </p>
+</section>
+
+<script>
+    const christmas = new Date("December 25, 2025 00:00:00").getTime();
+
+    setInterval(function () {
+        const now = new Date().getTime();
+        const distance = christmas - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("timer").innerHTML =
+            days + " days " + hours + " hours " +
+            minutes + " minutes " + seconds + " seconds ";
+    }, 1000);
+</script>
+
+</body>
+</html>
